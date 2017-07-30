@@ -23,19 +23,15 @@ function hideAll() {
 }
 
 function appendPageLinks(list) {
-
-	// figure out how many pages we need
 	const numPages = Math.ceil(list.length / studentsPerPage);
-
 	// create <div> and <ul>
 	let div = document.createElement('div');
 	div.setAttribute('class', 'pagination');
-
 	let ul = document.createElement('ul');
 	div.appendChild(ul);
 
 	// create <li> and <a> elements using a loop
-	for(let i = 1; i <= numPages; i += 1) {
+	for(let i = 1; i <= numPages; i++) {
 		// create <li> and <a>
 		let li = document.createElement('li');
 		let a = document.createElement('a');
@@ -48,11 +44,10 @@ function appendPageLinks(list) {
 
 		// Fill the links with numbers and add event handler.
 		a.textContent = i;
-		a.setAttribute('href', '#');
+		a.setAttribute('href', '#top');
 		a.addEventListener('click', function(evt) {
 			evt.preventDefault();
 			showPage(i, list);
-
 			// Set the active class name on the right link
 			activePageLink.removeAttribute('class');
 			evt.target.setAttribute('class', 'active');
